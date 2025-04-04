@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+</head>
+<body>
+<style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #070707;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1; /* Allow content to grow and take available space */
+}
+
+nav {
+    background-color: #212121;
+    color: white;
+    padding: 30px 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #bbb;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        position: sticky;
+      
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #212121;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        text-align: center;
+        transition: right 1.8s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        padding: 30px 58px;
+    }
+   
+    
+}
+
+nav .nav-links li a.active {
+    color: #00bcd4;
+    font-weight: bold;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+.profile-info {
+    flex: 1;
+    text-align: left;
+}
+
+.profile-image {
+    flex: 1;
+    width: 250px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 40px;
+  display: flex;
+  
+
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-text h1, .profile-text p {
+    margin: 0;
+}
+
+.profile-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.profile-text .title {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.profile-text .tagline {
+    font-size: 1.5em;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.profile-buttons {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.profile-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.profile-buttons .hire-button {
+    background-color: transparent;
+    color: white;
+    border-radius:2px solid #ffffff;
+    background-color: seagreen;
+}
+.profile-buttons .hire-button:hover {
+    background-color: #00bcd4;
+    
+}
+
+
+
+.profile-buttons .cv-button {
+    background-color: #e0e0e0;
+    color: #333;
+}
+.profile-buttons .cv-button:hover{
+    background-color: white;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.profile-stats .stat {
+    text-align: center;
+    position: relative;
+}
+
+.profile-stats .stat::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    height: 40px;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.profile-stats .stat:last-child::after {
+    display: none;
+}
+
+.profile-stats .stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
+
+.profile-stats .stat-label {
+    font-size: 1em;
+    color: #777;
+}
+
+@media (max-width: 800px) {
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .profile-image {
+        margin: 20px auto 0;
+    }
+
+    .profile-buttons {
+        justify-content: center;
+    }
+}
+
+/* Services Section */
+.services-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.services-subtitle {
+    font-size: 1.1em;
+    color: #bbb;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.service-title {
+    font-size: 1.5em;
+    color: #ff9800;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 1em;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.about-image {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom:0
+}
+
+
+
+
+
+
+
+
+
+
+.profile-stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background color */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.profile-stats .stat {
+    text-align: center;
+    position: relative;
+}
+
+.profile-stats .stat::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    height: 40px;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.profile-stats .stat:last-child::after {
+    display: none;
+}
+
+.profile-stats .stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
+
+.profile-stats .stat-label {
+    font-size: 1em;
+    color: #777;
+}
+
+/* work done*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+}
+
+.projects {
+    margin-top: 40px;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.project-item {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+.project-item p {
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.learn-more:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+    /*experience*/
+    .container3 {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .experience {
+        margin-top: 40px;
+    }
+    
+    .experience h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+    
+    .experience-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #2a2a2a;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .experience-item:hover {
+        transform: scale(1.03); /* Slight scale effect */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .icon {
+        font-size: 2rem;
+        color: #3498db;
+        margin-bottom: 15px;
+        transition: color 0.3s ease-in-out; /* Color transition */
+    }
+    
+    .experience-item:hover .icon {
+        color: #2980b9; /* Darker blue on hover */
+    }
+    
+    .experience-content h3 {
+        margin-top: 0;
+        color: #2c3e50;
+        transition: color 0.3s ease-in-out; /* Color transition */
+    }
+    
+    .experience-item:hover .experience-content h3 {
+        color: #2980b9; /* Darker blue on hover */
+    }
+    
+    .experience-content .company {
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 5px;
+    }
+    
+    .experience-content .duration {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 10px;
+    }
+    
+    .experience-content p {
+        margin-bottom: 0;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .experience-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .experience-list {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /*skill*/
+    .skills {
+        margin-top: 40px;
+    }
+    
+    .skills h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+    
+    .skill-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .skill-bar {
+        background-color:#2a2a2a;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        color: white;
+    }
+    
+    .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: rgb(255, 246, 246);
+    }
+    
+    .skill-progress {
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        height: 10px;
+        overflow: hidden;
+    }
+    
+    .skill-progress-bar {
+        background-color: #3498db;
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.5s ease-in-out;
+    }
+
+    /*experience expain*/
+    .container5 {
+        max-width: 1200px;
+        margin: 0 auto;
+        color: black;
+    }
+    
+    .experience {
+        margin-top: 40px;
+    }
+    
+    .experience h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #617a92;
+    }
+    
+    .timeline {
+        position: relative;
+        padding: 20px;
+    }
+    
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: #ddd;
+    }
+    
+    .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        width: 50%;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        padding-right: 30px;
+        text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 50%;
+        padding-left: 30px;
+    }
+    
+    .timeline-content {
+        background-color: #2c3e50;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .timeline-item::before {
+        content: attr(data-year);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background-color: #3498db;
+        color: #fff;
+        border-radius: 15px;
+    }
+    
+    .timeline-item:nth-child(odd)::before {
+        right: -30px;
+    }
+    
+    .timeline-item:nth-child(even)::before {
+        left: -30px;
+    }
+    
+    .skills {
+        margin-top: 10px;
+    }
+    
+    .skill-badge {
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-right: 5px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .timeline::before {
+            left: 20px;
+        }
+    
+        .timeline-item {
+            width: 100%;
+            left: 0;
+            padding-left: 50px;
+        }
+    
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-right: 0;
+        }
+    
+        .timeline-item::before {
+            left: 0;
+        }
+    }
+
+                            /*contact me*/
+    .container6 {
+        max-width: 1200px;
+        margin: 0 auto;
+        color: #ffffff;
+    }
+    
+    .contact {
+        margin-top: 40px;
+    }
+    
+    .contact h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #8a9fb4;
+    }
+    
+    .contact-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .contact-form, .contact-info {
+        flex: 1 1 300px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(235, 225, 225, 0.1);
+        padding: 30px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+     
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+   
+    
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: #212121;
+        color: white;
+    }
+    
+    .contact-form button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .contact-form button:hover {
+        background-color: #2980b9;
+    }
+    
+    .contact-info h3 {
+        margin-bottom: 20px;
+    }
+    
+    .contact-info p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-info p i {
+        margin-right: 10px;
+        color: #3498db;
+    }
+    
+    .contact-info .social-links a {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: #3498db;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    .contact-info .social-links a:hover {
+        color: #2980b9;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .contact-content {
+            flex-direction: column;
+        }
+    }
+
+/*footer*/
+.container8 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    background-color: #1a1a1a; /* Darker shade of black for the footer */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #999; 
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #fff; /* White icons */
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #3498db; /* Blue hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* whatsapp me glowing code*/
+
+.hire-button {
+    position: relative;
+    display: inline-block;
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e0e0e0;
+    background: #181818; /* Deeper dark background */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+.hire-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .hire-button span {
+    position: absolute;
+    display: block;
+  }
+  
+  .hire-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff); /* Brighter cyan glow */
+    animation: animate1 2s linear infinite;
+  }
+  
+  @keyframes animate1 {
+    0% {
+      left: -100%;
+    }
+    50%, 100% {
+      left: 100%;
+    }
+  }
+  
+  .hire-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00ffff); /* Brighter cyan glow */
+    animation: animate2 2s linear infinite;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes animate2 {
+    0% {
+      top: -100%;
+    }
+    50%, 100% {
+      top: 100%;
+    }
+  }
+  
+  .hire-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00ffff); /* Brighter cyan glow */
+    animation: animate3 2s linear infinite;
+    animation-delay: 1s;
+  }
+  
+  @keyframes animate3 {
+    0% {
+      right: -100%;
+    }
+    50%, 100% {
+      right: 100%;
+    }
+  }
+  
+  .hire-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00ffff); /* Brighter cyan glow */
+    animation: animate4 2s linear infinite;
+    animation-delay: 1.5s;
+  }
+  
+  @keyframes animate4 {
+    0% {
+      bottom: -100%;
+    }
+    50%, 100% {
+      bottom: 100%;
+    }
+  }
+
+
+
+
+
+</style>
+    <nav>
+        <div class="nav-logo" style="color:  #007bff;">Port<span style="color: whitesmoke;">folio</span></div>
+        <ul class="nav-links">
+            <li><a href="#home4">Home</a></li>
+            <li><a href="#about4">About</a></li>
+            <li><a href="#experience4">Experience</a></li>
+            <li><a href="#contact4">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <div class="container"> <div class="profile-section" id="home4">
+            <div class="profile-info">
+                <div class="profile-text">
+                    <h1>Titus T Bangura</h1>
+                    <p class="title">Web Developer</p>
+                    <p class="tagline">I'M <span id="typing-effect"></span></p>
+                </div>
+                <div class="profile-buttons">
+                    <button class="hire-button" id="hire" >WhatsApp Me 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="cv-button"  id="downloadCvButton">Download CV</button>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-value">5+</span>
+                        <span class="stat-label">Experiences</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">20+</span>
+                        <span class="stat-label">Project done</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">80+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-image">
+                <div class="golw">
+                <img src="backg.jpg" alt="Titus" >
+            </div>
+        </div>
+
+    </div>
+
+        <div class="services-section">
+            <h1 class="services-title">Services</h1>
+            <p class="services-subtitle">Creating intuitive and user-friendly designs through ux research</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="images/UX-icon.png" alt="UI/UX Design">
+                    </div>
+                    <h2 class="service-title">UI/UX Design</h2>
+                    <p class="service-description">Refers to the process of creating user-friendly and visually appealing digital experiences. It consists of two main components.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="images/web-icon.png" alt="Website Design">
+                    </div>
+                    <h2 class="service-title">Website Design</h2>
+                    <p class="service-description">The process of creating the visual layout, structure, and functionality of a website to ensure a seamless and engaging user experience.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="images/design-icon.png" alt="App Design">
+                    </div>
+                    <h2 class="service-title">App Design</h2>
+                    <p class="service-description">Refers to the process of creating the visual and functional aspects of a mobile or web application to provide a seamless user experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section" id="about4">
+            <div class="about-image">
+                <img src="backg.jpg" alt="About Me Image">
+            </div>
+            <div class="about-content">
+                <h1 class="about-title">About Me</h1>
+                <div class="nav-container">
+                    <nav class="nav-tabs" style="color: white;">
+                      <a href="#" class="nav-link active" data-tab="home">Skills</a>
+                      <a href="#" class="nav-link" data-tab="about">Experience</a>
+                      <a href="#" class="nav-link" data-tab="blogs">Education</a>
+                      <a href="#" class="nav-link" data-tab="contact">About</a>
+                    </nav>
+                    <div class="tab-content" id="home">
+                        <h2>Skills</h2>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-info">
+                                    <span>HTML</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info">
+                                    <span>CSS</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="about" style="display: none;">
+                     
+                        <h2>Experience</h2>
+                      <p>Developed and maintained responsive web applications using [Technology Stack], resulting in a [Percentage]% increase in user engagement.</p>
+                      <p>Implemented SEO best practices, improving website visibility and organic traffic.</p>
+                      <p>Provided UI/UX design services, creating intuitive and visually appealing interfaces.</p>
+                      <p>Managed client communication and project timelines, ensuring timely delivery of projects</p>
+                      <p>Stayed up-to-date with emerging web technologies and best practices, continuously improving skills</p>
+
+                    </div>
+
+                    <div class="tab-content" id="blogs" style="display: none;">
+                      <h2>Education</h2>
+                      <p>I hold a diploma in Software Engineering from Sky Vision College, where I gained a strong foundation in Web Development Skill. While formal education provided me with essential knowledge, I've always been driven by a passion for hands-on learning and creative problem-solving. My approach to web development is rooted in applying practical skills and thinking outside the box to create innovative solutions..</p>
+                    </div>
+                    
+                    <div class="tab-content" id="contact" style="display: none;">
+                      <h2>About</h2>
+                      <p>"I'm a web developer who believes in the power of the web to transform ideas into reality. I'm passionate about crafting visually appealing and intuitive websites that engage users. I enjoy the creative process of designing and developing web applications that are both functional and beautiful. I'm dedicated to delivering exceptional results and exceeding client expectations.".</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+    <!--about me css-->
+    <style>
+
+
+    .about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+        max-width: 1200px;
+        padding: 40px;
+        gap: 20px;
+        margin: 40px auto;
+   
+    }
+
+    .about-image {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+    }
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .about-content {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        width: 250px;
+        color: white;
+    }
+
+    .about-title {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .nav-container {
+        width: 550px;
+        background-color: #000000;
+        border-radius: 8px;
+        padding: 20px;
+        color: white;
+    }
+
+    .nav-tabs {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #fdfdfd;
+    }
+
+    .nav-link.active {
+        border-bottom: 2px solid purple;
+        color: #007bff;
+    }
+
+    .tab-content {
+        padding: 10px;
+    }
+
+
+    @media (max-width: 1301px) {
+
+        .tab-content h2 {
+            font-size: 1.5em; /* Reduce tab content heading size */
+            margin-bottom: 10px; /* Adjust heading margin */
+        }
+
+        .tab-content p {
+            font-size: 0.9em; /* Reduce tab content paragraph size */
+            line-height: 1.5; /* Adjust line height for readability */
+        }
+    
+    }
+    /* Responsive Design for About */
+    @media (max-width: 768px) {
+        .about-section {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            width: 90%;
+        }
+
+        .about-image {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .about-content {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+
+        /* Responsive Text and Navigation */
+        .about-title {
+            font-size: 2em; /* Reduce title font size */
+        }
+
+        .nav-container {
+            width: 100%; /* Full width on small screens */
+        }
+
+        .nav-tabs {
+            flex-direction: column; /* Stack tabs vertically */
+            align-items: stretch; /* Stretch tabs to full width */
+        }
+
+        .nav-link {
+            padding: 10px;
+            text-align: center; /* Center tab text */
+        }
+
+        .tab-content h2 {
+            font-size: 1.5em; /* Reduce tab content heading size */
+        }
+
+        .tab-content p {
+            font-size: 0.9em; /* Reduce tab content paragraph size */
+        }
+
+        .tab-content {
+            padding: 15px 10px; /* Adjust padding for small screens */
+        }
+
+        .tab-content h2 {
+            font-size: 1.5em; /* Reduce tab content heading size */
+            margin-bottom: 10px; /* Adjust heading margin */
+        }
+
+        .tab-content p {
+            font-size: 0.9em; /* Reduce tab content paragraph size */
+            line-height: 1.5; /* Adjust line height for readability */
+        }
+    
+
+    }
+
+    </style>
+
+<!--work start-->
+<div class="container10">
+    <section class="projects">
+        <h2>Projects Done</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <img src="project1.jpg" alt="e-commence">
+                <h3>E-commence website</h3>
+                <p>Website design to conduct transation online</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="project-item">
+                <img src="project2.jpg" alt="non-Profit">
+                <h3>Non-Profit website</h3>
+                <p>Serve as online hub for an organization cause,rather than profit</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="project-item">
+                <img src="project3.jpg" alt="Restaurant">
+                <h3>Restaurant website</h3>
+                <p>Online Storefront.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="project-item">
+                <img src="project4.jpg" alt="login">
+                <h3>Login Form</h3>
+                <p>Online user interface allowing  userrs to gain access.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+</div>
+<!--work end-->
+
+
+<!-- experience-->
+<div class="container3" id="experience4">
+    <section class="experience">
+        <h2>Experience</h2>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="icon"><i class="fas fa-briefcase"></i></div>
+                <div class="experience-content">
+                    <h3>Web Developer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="duration">2022 - Present</p>
+                    <p>Developed and maintained web applications using modern technologies.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="experience-content">
+                    <h3>Freelance Web Designer</h3>
+                    <p class="company">Various Clients</p>
+                    <p class="duration">2020 - 2022</p>
+                    <p>Designed and developed websites for various clients, focusing on user experience.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="experience-content">
+                    <h3>Web Development Intern</h3>
+                    <p class="company">Digital Agency</p>
+                    <p class="duration">2019 - 2020</p>
+                    <p>Assisted in the development of web applications and learned industry best practices.</p>
+                </div>
+            </div>
+        </div>
+ <!-- enperience end-->
+
+ <!--experience expain-->
+ <div class="container5">
+    <section class="experience">
+        <h2>Experience Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-year="2022">
+                <div class="timeline-content">
+                    <h3>Web Developer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="duration">2022 - Present</p>
+                    <p>Developed and maintained web applications using modern technologies.</p>
+                    <div class="skills">
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2020">
+                <div class="timeline-content">
+                    <h3>Freelance Web Designer</h3>
+                    <p class="company">Various Clients</p>
+                    <p class="duration">2020 - 2022</p>
+                    <p>Designed and developed websites for various clients, focusing on user experience.</p>
+                    <div class="skills">
+                        <span class="skill-badge">UI/UX</span>
+                        <span class="skill-badge">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2019">
+                <div class="timeline-content">
+                    <h3>Web Development Intern</h3>
+                    <p class="company">Digital Agency</p>
+                    <p class="duration">2019 - 2020</p>
+                    <p>Assisted in the development of web applications and learned industry best practices.</p>
+                    <div class="skills">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+ <!--experience explain-->
+
+<!--contact me-->
+<div id="about" class="container6" >
+    <section class="contact" id="contact4">
+        <h2>Contact Me</h2>
+        <div class="contact-content">
+            <div class="contact-form" style="background-color: #2a2a2a;">
+                <form action="https://formspree.io/f/your_formspree_id" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info" style="background-color: #2a2a2a; color: white;">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-envelope"></i> Titus T. Bangura</p>
+                <p><i class="fas fa-phone"></i> +232 888 878 50</p>
+                <p><i class="fas fa-map-marker-alt"></i> Freetown, Sierra Leone</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--contact me end-->
+
+
+       
+
+        <!--footer-->
+    </div>
+    <div class="container8">
+    </div>
+<footer>
+    <div class="footer-content">
+        <div class="copyright">
+            <p>&copy; 2024 Titus Portfolio. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // ... (Your existing JavaScript code)
+        
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+             if (navLinks.classList.contains('active')) {
+                // If already active, slide out
+                navLinks.style.right = '-100%';
+                setTimeout(() => {
+                    navLinks.classList.remove('active');
+                }, 1800);
+            } else {
+                // If not active, slide in
+                navLinks.style.right = '-100%';
+                navLinks.classList.add('active');
+                setTimeout(() => {
+                    navLinks.style.right = '0';
+                }, 10);
+            }
+        });
+
+        const navLinksList = document.querySelectorAll('nav .nav-links li a');
+        const sections = document.querySelectorAll('section');
+
+        function setActiveLink() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinksList.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // Add click event listener for navigation links
+        navLinksList.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinksList.forEach(otherLink => {
+                    otherLink.classList.remove('active');
+                });
+                link.classList.add('active');
+            });
+        });
+    
+
+    </script>
+
+    <!-- type test code-->
+     <script>
+const textDisplay = document.getElementById("typing-effect");
+const phrases = ["UI/UX designer", "Web Developer", "Graphic Designer"];
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
+let isEnd = false;
+let replaceStart = 0;
+
+function loop() {
+    isEnd = false;
+    textDisplay.innerHTML = currentPhrase.join("");
+
+    if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+            currentPhrase.push(phrases[i][j]);
+            j++;
+            textDisplay.innerHTML = currentPhrase.join("");
+        }
+
+        if (isDeleting && j > replaceStart) {
+            currentPhrase.pop();
+            j--;
+            textDisplay.innerHTML = currentPhrase.join("");
+        }
+
+        if (j === phrases[i].length && !isDeleting) {
+            isEnd = true;
+            isDeleting = true;
+            replaceStart = phrases[i].length -21; // Keep last 2 chars
+        }
+
+        if (isDeleting && j === replaceStart) {
+            currentPhrase = currentPhrase.slice(0, replaceStart); // Keep last 2 chars
+            isDeleting = false;
+            i++;
+            if (i === phrases.length) {
+                i = 0;
+            }
+            j = replaceStart; // Reset j to replaceStart
+        }
+    }
+
+    const speedUp = Math.random() * (30 - 15) + 15;
+    const normalSpeed = Math.random() * (80 - 50) + 50;
+    const time = isEnd ? 800 : isDeleting ? speedUp : normalSpeed;
+    setTimeout(loop, time);
+}
+
+loop();
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
